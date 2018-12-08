@@ -25,14 +25,13 @@ You will also see any lint errors in the console.
 
 ### 开发中遇到的坑和分享
 
-在create-react-app中使用mobx, 需要npm install @babel/plugin-proposal-decorators, 并npm run eject 项目, 在package.json中新增babel,并在babel下使用plugin
+在create-react-app中使用mobx, 需要npm install @babel/plugin-proposal-decorators, 并npm run eject 项目, 在package.json中新增babel,并在babel下使用plugin<br>
 
-在catalog.js中，在render函数里如果解构this.state.rawData,会导致删除失败，因为上一级是props传入，再重新获取rawdata并更新在catalog组件时，该组件state没有清空，所以页面不会有同步结果。
+在catalog.js中，在render函数里如果解构this.state.rawData,会导致删除失败，因为上一级是props传入，再重新获取rawdata并更新在catalog组件时，该组件state没有清空，所以页面不会有同步结果。<br>
 
-开发中尽量避免了操作dom，尽量做到全状态管理。
+开发中尽量避免了操作dom，尽量做到全状态管理。<br>
 
-在一级路由‘/home’需要单独返回一个component或者render虚拟dom，并且要加上exact,仅当location时localhost:3000/home时，页面回返回一些文字样式。.
-
+在一级路由‘/home’需要单独返回一个component或者render虚拟dom，并且要加上exact,仅当location时localhost:3000/home时，页面回返回一些文字样式。
 
 ### 使用到的技术栈
 
@@ -43,8 +42,11 @@ mobx-react
 antd
 ant-motion
 sass
-json-server
-使用json-server做了个简单的登录验证,存储session
+json-server<br>
+使用json-server做了个简单的登录验证,存储session. 增加了个server.js，并且修改了package.json的启动命令，启动server的时候还是<br>
+```
+npm start
+```
 
 ### 待完善
 
