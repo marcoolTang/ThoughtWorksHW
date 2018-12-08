@@ -106,7 +106,7 @@ class Home extends Component {
 							{login}
 						</div>
 					</Header>
-					<Layout style ={{width:1200,left:'50%',marginLeft:'-600px',position:'relative',height:'100%'}}>
+					<Layout style ={{width:1200,left:'50%',marginLeft:'-600px',position:'relative',height:'100%'}} className = 'homebackground-container'>
 						<Sider
 						breakpoint="lg"
 						collapsedWidth="0"
