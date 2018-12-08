@@ -35,15 +35,17 @@ You will also see any lint errors in the console.
 
 ### 使用到的技术栈
 
-create-react-app
-react-router 4.x
-mobx
-mobx-react
-antd
-ant-motion
-sass
+create-react-app<br>
+react-router 4.x<br>
+mobx<br>
+mobx-react<br>
+antd<br>
+ant-motion<br>
+sass<br>
 json-server<br>
-使用json-server做了个简单的登录验证,存储session. 增加了个server.js，并且修改了package.json的启动命令，启动server的时候还是<br>
+
+
+使用json-server做了个简单的登录验证,存储session. <br>增加了个server.js，并且修改了package.json的启动命令，启动server的时候还是<br>
 ```
 npm start
 ```
