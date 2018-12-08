@@ -96,7 +96,7 @@ class Home extends Component {
    			)
 		const {match} = this.props
 		return (
-				<Layout >
+				<Layout className = 'homebackground-container'>
 					<Header style = {{background:'white'}}>
 						<LogoSVG />
 						<div className = "avatar" style = {{width:"auto", display:"inline-block",float:'right',paddingRight:'80px' }}>
