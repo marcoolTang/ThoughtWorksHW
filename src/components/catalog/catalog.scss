@@ -9,7 +9,7 @@ li{
 	height: 110px;
 	background: #fff;
 	margin-top: 20px;
-	>text{
+	>em{
 		font-size: 14px;
 	}
 	.right-side-container {
@@ -59,7 +59,7 @@ li{
 		    padding-left: 5px;
 		    margin-right: 10px;
 	 	}
-	 	>text {
+	 	>em {
  		    float: left;
 		    padding-right: 15px;
 		    margin-top: 2px;
@@ -100,7 +100,7 @@ li{
 			width: auto;
 			background: #EFEFEF;
 			margin-left: 10px;
-			text{
+			em{
 			    float: left;
 			 	margin-right: 10px;
 			 	padding-left: 5px;
@@ -185,4 +185,12 @@ li{
 
 }
 
-
+.hide{
+	display:none;
+}
+.block {
+	display:block;
+}
+em{
+	font-style:normal;
+}

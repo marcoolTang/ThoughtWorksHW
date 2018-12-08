@@ -1,4 +1,4 @@
-.logo {
+.logo-container {
   width: auto;
   height: auto;
   position: absolute;
@@ -9,4 +9,19 @@
 .ant-layout-header {
 	position: relative;
 }
-
+.icon-id-card{
+	margin-right:8px;
+	float:left;
+}
+.icon-sign-in{
+	margin-right:8px;
+	float:left;
+}
+.icon-id-text{
+	font-size:14px;
+	float:left;
+}
+.icon-sign-text{
+	font-size:14px;
+	float:left;
+}

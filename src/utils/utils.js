@@ -42,20 +42,21 @@ export　function _getType(rawdata) {
           'physical':0,
           'comingmore':0
         }
-        console.log(rawdata)
+        // console.log(rawdata)
         type.all = rawdata.length
         rawdata.map((item,key) => {
-          if(item.type == 'virtual'){
+          if(item.type === 'virtual'){
               type.virtual  += 1 
           }
-          if(item.type == 'physical'){
+          if(item.type === 'physical'){
               type.physical +=1
           }else{
             item.comingmore  += 1
           }
 
+          return type
         })
-        console.log(type)
+        // console.log(type)
         return type
     }
 }
@@ -66,14 +67,23 @@ export　function _getStatus(rawdata) {
           building:0,
         }
         rawdata.map((item,key) => {
-          if(item.status == 'idle'){
+          if(item.status === 'idle'){
               status.idle  += 1 
           }
-          if(item.status == 'building'){
-              status.building +=1
+          if(item.status === 'building'){
+             status.building +=1
           }
+          return status
 
         })
         return status
     }
+}
+
+
+export function _sortInputValue(value){
+    if(!value){
+      return
+    }
+    return value.split(',')
 }
