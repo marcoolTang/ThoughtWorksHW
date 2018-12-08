@@ -9,7 +9,7 @@ Please clone or download this project to your local, and use `npm` to install th
 npm install
 npm start
 ```
-
+Please use username:admin, password:admin to login
 
 ## Available Scripts
 
