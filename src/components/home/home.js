@@ -137,8 +137,8 @@ class Home extends Component {
 								</Menu.Item>
 							</Menu>
 						</Sider>
-					    <Content style={{ margin: '24px 16px 0' }}>
-			    			<div style={{ padding: 24, background: '', minHeight: 360 }}>
+					    <Content style={{ margin: '24px 16px 0',background:'#E1E4E6' }}>
+			    			<div style={{ padding: 24,minHeight: 360 }}>
 
 			    				<Switch>
 			    					<Route exact path ={`${match.url}`} render = {()=>'Welcome to Home Page'}></Route>
