@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { Row, Col, Spin } from 'antd';
 import Catalog from '../catalog/catalog.js';
-import request from '../../services/fetch.js';
-import {getAgentList} from '../../config/api.js';
+// import request from '../../services/fetch.js';
+// import {getAgentList} from '../../config/api.js';
 import {_getType,_getStatus} from '../../utils/utils.js';
 import {observer, inject,} from 'mobx-react';
-import { observable } from 'mobx';
 import Texty from 'rc-texty';
 
 import gear from '../../assets/gear.png'
@@ -14,7 +13,7 @@ import './agent.scss';
 
 @inject('store')@observer
 class Agent extends Component {
-	@observable data
+	// @observable data
 
 	constructor(props){
 		super(props)
@@ -22,25 +21,25 @@ class Agent extends Component {
 			rawData: [],
 			types:{},
 			status:{},
+			toggle:'',
 		}
-		this.props.store.initData()
 	}
 	componentDidMount(){
-		request.get(getAgentList).then((res)=>{
-			let resJson = JSON.parse(res)
-			//console.log(resJson)
+		this.props.store.initData()
+		// request.get(getAgentList).then((res)=>{
+		// 	let resJson = JSON.parse(res)
+		// 	//console.log(resJson)
 
-			let types = _getType(resJson)
-			let status = _getStatus(resJson)
+		// 	let types = _getType(resJson)
+		// 	let status = _getStatus(resJson)
 
-			this.setState({
-				rawData:resJson,
-				types:types,
-				status:status,
-				toggle:'',
+		// 	this.setState({
+		// 		rawData:resJson,
+		// 		types:types,
+		// 		status:status,
 				
-			})
-		})
+		// 	})
+		// })
 	}
 
 	//下面三个函数用来控制分类 用一个toggle来切换，当item不为toggle切toggle不为空一个隐藏属性
@@ -66,15 +65,17 @@ class Agent extends Component {
 		// let {rawData,types,status} = this.state
 		let expectedData = {}
 		//处理store里的stringifyData,在store里处理返回来的是个Proxy对象,不好处理
-		let resJson = JSON.parse(this.props.store.data);
+		// console.log(this.props.store.parseData)
+		let parseData = this.props.store.parseData
 		let { state } = this.props.store
 		expectedData = {
-				rawData:resJson,
-				types:_getType(resJson),
-				status:_getStatus(resJson),
+				rawData:parseData,
+				types:_getType(parseData),
+				status:_getStatus(parseData),
 			}
 		let {rawData,types,status} = expectedData
-		console.log(expectedData,typeof state)
+		console.log(types)
+		// console.log(expectedData,typeof state)
 		return (
 			<div>
 				<div className="gutter-example">
@@ -121,7 +122,8 @@ class Agent extends Component {
 				</div>
 				<Spin  size="large" spinning = {state} />
 				<div className = 'loading-container'>
-					<div className = {state?'loading-background':'s'} ></div>	      
+					<div className = {state?'loading-background':'s'} ></div>
+																								{/** 这里就用setState来操作了用来控制all,physical,vitual**/}	      
 					{rawData?rawData.map((item,index) => <Catalog key ={index} rawData = {item} type = {item.type!==this.state.toggle&&this.state.toggle!==''?'hide':'block'}/>):''}
 				</div>
 			</div>

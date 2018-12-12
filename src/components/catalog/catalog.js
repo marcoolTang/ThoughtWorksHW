@@ -45,16 +45,6 @@ class Catalog extends Component {
 	// 	})
 	// }
 
-	_open = (e) => {
-		this.setState({
-			isshown:true
-		})
-	}
-	_close = (e)=>{
-		this.setState({
-			isshown:false
-		})
-	}
 	_cancle =(e) => {
 		console.log(1)
 		this.setState({
@@ -133,8 +123,9 @@ class Catalog extends Component {
 		})
 	}
 	render () {
-		let { name, location, os, ip, resources, status, id} = this.props.rawData;
+		let { name, location, os, ip, resources, status, id,display} = this.props.rawData;
 
+		
 		let imgpath = ''
 		for (let key in imgSrc){
 			if(os === key){
@@ -169,11 +160,11 @@ class Catalog extends Component {
 
 					<ul className = 'ul-container'>
 						<li className = 'plus-container' >
-							<i className = 'icon-plus' onClick = {this._open}></i>
-							<div className= 'addresourse-container' style = {{display:this.state.isshown?'block':'none'}}>
+							<i className = 'icon-plus' onClick = {this.props.store.toggleAddResourceBox.bind(this,id)}></i>
+							<div className= 'addresourse-container' style = {{display:display?'block':'none'}}>
 								<span className = 'description'>seperate multiple resource name with commas</span>	
 								<Input style ={{marginTop:15}} value = {this.state.isclearcontent?'':this.state.inputvalue} onChange = {this._inputFun}/>
-								<span className = 'icon-close' onClick = {this._close}></span>
+								<span className = 'icon-close' onClick = {this.props.store.closeAddResouceBox.bind(this,id)}></span>
 								<span className = 'addresource' onClick = {this._addResource}>Add Resources</span>
 								<span className = 'cancle' onClick = {this._cancle}>Cancel</span>
 							</div>

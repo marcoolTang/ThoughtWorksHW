@@ -50,13 +50,10 @@ export　function _getType(rawdata) {
           }
           if(item.type === 'physical'){
               type.physical +=1
-          }else{
-            item.comingmore  += 1
           }
 
           return type
         })
-        // console.log(type)
         return type
     }
 }
